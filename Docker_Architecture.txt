@@ -1,0 +1,28 @@
+---------------------------------- Docker Architecture ------------------------------------
+
+
+Several things into the architecture :- 
+
+1. Docker Engine or Docker Application Container Engine
+
+2. Docker Daemon --  (Docker under the hood uses container d)
+                   | -->> docker d -> container d
+3. Docker CLI  ----
+
+4. Docker Client or Docker Desktop (UI Interface)
+
+
+<- -------------------- To install Locally visit below link for the docker desktop ----------------------- -> 
+Official Website :- https://app.docker.com/
+
+
+<- -------------------- To install the docker on AWS machine ----------------------- -> 
+
+. Make an EC2 instance 
+. sudo apt update
+. sudo apt install docker.io 
+
+
+<- -------------------- Check Docker Engine Running or Not ----------------------- -> 
+To check whether the docker-engine is running or not :- 
+Cmd = sudo systemctl status docker

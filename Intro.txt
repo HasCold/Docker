@@ -1,0 +1,31 @@
+----------------------------------------- Docker ------------------------------------------------
+
+Classic Example :- Hey! this code is working on my computer but don't know why this isn't work on your pc.
+
+Virtual Environment :- Splitting up the computer hardware resources (Memory, Storage, Computation) and transform as many as much into the logical resources (Software).
+
+Docker is an open source tool which creates a virtual environment irrespective of particular operating system (Ubuntu, Mac OS, Windows OS) and installs all your required packages, libraries and dependencies of your application into the container and this container then ship to the client computer via image.
+
+
+History :-
+
+. DotCloud -->> Public Pycon (2013) -->> CNCF (2017)
+
+
+-----------------------------------------------------------------------------------------------------------
+
+------------------------------ Virtualization (VM)  VS Containerization (Docker) -------------------------------------
+
+Virtualizaton :-
+- VM -> OS
+- Virtualization mainly used the Hypervisor (Creates a space from the OS for the VM's) , OS -->> (Windows, Mac and Linux).
+- Two types of hypervisor in the market (Native Hypervisor and Hosted Hypervisor).
+- Too Heavy on the PC's.
+- 8 GB RAM -->> Probably 2 VM's can run into this.
+
+Containerization :- 
+- Container Like Docker, Podman and Container d etc.
+- Containerization mainly uses the docker engine and this docker engine will not contain their Operating System
+- The Docker Enginer uses the host operating system.
+- Container will create in a light weight.
+- 8 GB RAM -->> Many containers can run in a light weight.

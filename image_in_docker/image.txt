@@ -1,0 +1,24 @@
+---------------------------------- Images ----------------------------------------
+
+- Images are the blueprint of the containers which can create by the dockerfile
+
+- Basically in the dockerfile there is some instructions will be command and on the basis of this instruction the image will create 
+- This image (blueprint) now can replicate to anyone or create multiple containers for the application. 
+
+
+
+   Instructions to              Everything is present 
+    build images        --->>>   in this envrionment   --->>>       Container
+                                 to create a container
+
+    DockerFile                      Image                           Container
+
+
+Easy Poem :- DockerFile se banti ha Docker Image and Docker Image se banta ha Docker Container.
+
+              build                      run
+DockerFile -------->>>> Docker Image -------->>>> Docker Container 
+
+-------------------------------------- Docker Hub ----------------------------------------
+
+. Publically available all the images that you can pull easily from the docker hub.

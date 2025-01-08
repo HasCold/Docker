@@ -1,0 +1,21 @@
+<- ---------------------------------------- Docker Commands ---------------------------------------- ->
+
+. docker  === Shows all the command related to docker. 
+
+. docker ps === show all the running containers
+
+. docker images === show all the present images or containers installed
+
+. docker login === Login via the given credentials in Docker Desktop
+
+. docker pull hello-world === Pull the images from the repository of docker hub just like we can do on the github e.g. git clone <repo-url>.
+e.g. :- 
+. docker pull mysql
+. Then to run the mysql server we have to give the login credentials to them in a envrionment variable.
+    --->> docker run -e MYSQL_ROOT_PASSWORD=root mysql
+
+. docker run hello-world === By this command we can create a container from the image.
+
+. docker stop <container-id>  === docker stop 1915167b30ba
+
+. docker build -t java-app .  === to build the dockerfile to create a docker image ; -t is used to give the name of image and . used for the context of dockerfile where it is present 

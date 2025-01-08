@@ -1,0 +1,32 @@
+------------------------------------------------ Image --------------------------------------------------------
+
+- In image there was some set of instructions has been given like os, package info, library info and dependencies etc.
+
+The image file can be created by the dockerfile which has set of instructions.
+
+---------------------------------------------------------------------------------------------------------------------
+
+These are the part of syntax of dockerfile : FROM, WORKDIR, COPY, RUN, CMD etc.
+We have to create an image which runs our java application so for this purpose build the dockerfile like below :-  
+
+# Pull a base image which gives all required tools and libraries.
+FROM openjdk:17-jdk-alpine  // You can google it for the base name
+
+# Create a folder where the app code will be stored.
+WORKDIR /app  // We have to create a /app folder inmy container.
+
+# Copy the source code from your HOST machine to your container
+COPY src/Main.java /app/Main.java    // Copy the code from the Host(PC) directory and paste into the working directory(/app) of my container
+
+# Compile the application code 
+RUN javac src/Main.java   // Java code first has to be compiled then run
+
+# Run the application
+CMD ["java", "Main"]  // By this command application will start ; Rest of the above commands will only for the creation of image.
+
+
+// CMD and ENTRYPOINT are the same command which mainly used to inject the command but the main difference is that CMD can be override whereas ENTRYPOINT cannot be override.
+-----------------------------------------------------------------------------------------------------------------------
+
+After making the dockerfile then build the docker image
+
