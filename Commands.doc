@@ -14,8 +14,26 @@ e.g. :-
 . Then to run the mysql server we have to give the login credentials to them in a envrionment variable.
     --->> docker run -e MYSQL_ROOT_PASSWORD=root mysql
 
-. docker run hello-world === By this command we can create a container from the image.
+. docker run -d hello-world === By this command we can create a container from the image and run in a deattached manner in the background.
 
-. docker stop <container-id>  === docker stop 1915167b30ba
+. docker stop <container-id>  === Stop the particular container.
 
 . docker build -t java-app .  === to build the dockerfile to create a docker image ; -t is used to give the name of image and . used for the context of dockerfile where it is present 
+
+. docker run -p 80:80 -d flask-app  === Match the port number of our machine with the application running port HOST_PORT:APP_PORT
+
+. docker logs <container-id> === shows the logs generated on our app.
+
+. docker attach <container-id> === Will Attach the container in your terminal and shows the current logs occured.
+
+. docker start <container-id>
+
+. docker stop <container-id>
+
+. docker exec -it <container-id> bash === exec-> execute the container in a -it-> Interactive way with our bash terminal
+e.g. :- 
+docker exec -it <mysql-container-id> bash
+bash-5.1# mysql -u root -p 
+Enter password: Hasan
+
+. docker run -itd ubuntu  === -itd For continuously running the ubuntu in the interactive terminal with deattached way. 

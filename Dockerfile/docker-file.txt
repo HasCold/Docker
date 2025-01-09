@@ -29,4 +29,3 @@ CMD ["java", "Main"]  // By this command application will start ; Rest of the ab
 -----------------------------------------------------------------------------------------------------------------------
 
 After making the dockerfile then build the docker image
-
