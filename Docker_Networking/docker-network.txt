@@ -1,0 +1,15 @@
+---------------------------------------- Docker Network ------------------------------------------------
+
+When there two or more docker containers are running in our system so they run in an isolated environment. If we want that both containers can communicate with each other so docker network play a vital role. 
+
+There are 7 types of docker networking :-
+
+1. Host === Your container and Host machine both network are same
+2. Bridge (default) === Pull the bridge between your host machine (diff. network) and docker container (diff. network) which is supported by-default by the docker. 
+3. User Defined Bridge (Custom)
+4. None === Completely isolated container(No Network) no one can communicate.
+
+Not Used the Docker Swarm Mostly 
+5. MACVLAN (docker swarm) === Used for the cluster purpose
+6. IPVLAN  (docker swarm)
+7. Overlay (docker swarm)

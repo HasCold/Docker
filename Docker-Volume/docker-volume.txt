@@ -1,0 +1,5 @@
+------------------------------------- Docker Volume ------------------------------------------
+
+Suppose the mysql container unfortunately stop the working or crash or delete. Then in this case all data will be lost.
+
+So for the data persistent we can do that the mysql container data will be binded with out host machine where data can replicate into the Hard Drive of Host Machine. This can be happen by docker volume. 

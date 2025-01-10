@@ -4,6 +4,8 @@
 
 . docker ps === show all the running containers
 
+. docker ps -a === This lists all containers, including stopped ones.
+
 . docker images === show all the present images or containers installed
 
 . docker login === Login via the given credentials in Docker Desktop
@@ -11,7 +13,7 @@
 . docker pull hello-world === Pull the images from the repository of docker hub just like we can do on the github e.g. git clone <repo-url>.
 e.g. :- 
 . docker pull mysql
-. Then to run the mysql server we have to give the login credentials to them in a envrionment variable.
+. Then to run the mysql server we have to give the login credentials or pass them a envrionment variable.
     --->> docker run -e MYSQL_ROOT_PASSWORD=root mysql
 
 . docker run -d hello-world === By this command we can create a container from the image and run in a deattached manner in the background.
@@ -30,10 +32,99 @@ e.g. :-
 
 . docker stop <container-id>
 
+-------------------------------------------------------------------------------------------------------------------------------------
 . docker exec -it <container-id> bash === exec-> execute the container in a -it-> Interactive way with our bash terminal
 e.g. :- 
 docker exec -it <mysql-container-id> bash
-bash-5.1# mysql -u root -p 
-Enter password: Hasan
+bash-5.1# mysql -u root -p   === -u -> root  
+Enter password: root
+
+Interact with DB := 
+. show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+. create database devops;
+Query OK, 1 row affected (0.04 sec)
+
+. mysql> quit
+Bye
+bash-5.1# quit
+bash: quit: command not found
+bash-5.1# exit
+exit
+-------------------------------------------------------------------------------------------------------------------------------------
 
 . docker run -itd ubuntu  === -itd For continuously running the ubuntu in the interactive terminal with deattached way. 
+
+. docker rm <container-id> === Delete the Container
+
+. docker rm -f <container-id> === If the container is still running, you can stop and delete it in one step using the -f (force) flag 
+
+-------------------------------------- Docker Network ---------------------------------------------
+
+. docker network ls === Show the current network 
+
+. docker network create <network-name> -d bridge === -d means Driver ; docker network create mynetwork -d bridge 
+
+. docker run -d -p 5000:5000 -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DB=devops two-tier-backend:latest ===
+ -d= deattached manner ; -p= port running on HOST_PORT:CONTAINER_PORT ; -e= Pass the environment variable ; latest= image tag has given.
+
+. Suppose if the container is not running by checking from the command "docker ps" or "docker ps -a" then check the logs by the cmd :-
+docker logs <container-id>
+
+. First make a network on the same page for flask app and mysql
+docker network create two-tier -d bridge
+
+. docker run -d --name mysql --network two-tier -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=devops mysql
+
+. docker run -d -p 5000:5000 --network two-tier -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DB=devops two-tier-backend:latest
+
+. docker exec -it <mysql-container-id> bash
+
+ use devops; 
+ Reading table information for completion of table and column names
+ You can turn off this feature to get a quicker startup with -A
+
+ Database changed
+
+ show tables;
++------------------+
+| Tables_in_devops |
++------------------+
+| messages         |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from messages;
++----+------------------------+
+| id | message                |
++----+------------------------+
+|  1 | Hello Go               |
+|  2 | Testing for 2 tier app |
+|  3 | I am going             |
+|  4 | HiHi Hasan             |
++----+------------------------+
+
+- So now after deleting the mysql server again start them :- 
+
+. docker stop bbdba484dba7 && docker rm bbdba484dba7
+
+. docker run -d --name mysql --network two-tier -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=devops mysql
+
+. docker restart 2c9280f94be3
+
+---------------------------------------------------------------------------------------------------
+
+
+-------------------------------------- Docker Volume ---------------------------------------------
+
+. docker volume ls === present volume will be shown
+
+---------------------------------------------------------------------------------------------------
