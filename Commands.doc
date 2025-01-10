@@ -123,8 +123,22 @@ mysql> select * from messages;
 ---------------------------------------------------------------------------------------------------
 
 
--------------------------------------- Docker Volume ---------------------------------------------
+--------------------------------------- Docker Volume ---------------------------------------------
 
 . docker volume ls === present volume will be shown
 
----------------------------------------------------------------------------------------------------
+. docker volume create mysql-data === create a volume
+
+. docker volume inspect mysql-data === inspect the location of mysql-data volume 
+
+. docker run -d --name mysql --network two-tier -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=devops mysql 
+=== -v means volume is bind with our HOST_PATH:CONTAINER_VOLUME_PATH
+
+
+Different Way of storage :- 
+Create a folder in your host machine -->>
+
+. docker run -d --name mysql --network two-tier -v "/mnt/e/Hasan Data/Docker/Docker-Volume/mysql:/var/lib/mysql" -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=devops mysql  === -v means volume is bind with our HOST_PATH:CONTAINER_VOLUME_PATH
+
+
+----------------------------------------------------------------------------------------------------
