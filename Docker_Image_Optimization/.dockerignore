@@ -1,0 +1,5 @@
+# These two things or directories will not included in our docker image.
+
+node_modules/
+
+dist/
