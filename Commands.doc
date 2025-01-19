@@ -142,3 +142,17 @@ Create a folder in your host machine -->>
 
 
 ----------------------------------------------------------------------------------------------------
+
+--------------------------------------- Docker Compose ---------------------------------------------
+
+. docker compose up -d === to run the docker-compose file or run the docker container in a deattached manner means in the background.
+
+. docker compose up -d --build === forcefully build the containers again.
+
+. docker compose down === basically stop all the containers and remove
+
+----------------------------------------------------------------------------------------------------
+
+. docker system prune === delete those containers from the system which are no longer in used.
+
+. docker rmi <image-id> === remove the image id.

@@ -1,0 +1,57 @@
+# Docker Compose version define
+version: "3.8"
+
+# Mention the services means define the multiple docker containers
+# Suppose here we are making two containers
+# Basically we have to write every step for building the container just like run the command to build the dockerfile
+services: 
+  mysql:
+    container_name: mysql
+    image: mysql
+    environment:
+      MYSQL_DATABASE: "devops"
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - two-tier
+    ports: 
+      - 3306:3306
+    restart: always  # If the container healthcheck is not passed then restart the container
+ # Until the mysql container is properly not ready so do the health check means flask app ping the server in every 5 seconds
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+
+# Flask is not directly build with the image, whereas build with the dockerfile context  so pass the dockerfile context by .  
+  flask:
+    build:
+      context: .
+    container_name: two-tier-backend
+    ports:
+      - 5000:5000
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: devops
+    networks: 
+      - two-tier
+    depends_on: # It means our flask app container will depend on the mysql container until it gets ready
+      - mysql
+    restart: always  # If the container healthcheck is not passed then restart the container
+    healthcheck:
+        test: ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"] 
+        interval: 10s
+        timeout: 5s
+        retries: 5
+        start_period: 60s
+# Name the same volumes and networks you had create
+volumes:
+  mysql-data:
+
+networks:
+  two-tier:

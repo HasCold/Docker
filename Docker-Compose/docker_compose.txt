@@ -1,0 +1,9 @@
+Docker compose is a tool that can help to automate the containers.
+
+. Docker Compose is basically your configuration file i.e. yml or YAML file and YML is a markup language.
+. YAML file can be passed like in a key-value pair.
+
+. In docker compose, there will be a multiple containers.
+
+- To use the docker-compose tool, first install it into the server
+. sudo apt install docker-compose-v2
