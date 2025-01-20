@@ -156,3 +156,11 @@ Create a folder in your host machine -->>
 . docker system prune === delete those containers from the system which are no longer in used.
 
 . docker rmi <image-id> === remove the image id.
+
+--------------------------------------- Docker Registry ---------------------------------------------
+. docker login
+
+. docker image tag two-tier-flask-app-flask-app:latest hasan1702/two-tier-backend:latest === Tag the current image and rename it with your username and then push on to the docker hub. 
+
+. docker push hasan1702/two-tier-backend:latest === Push the image from local machine to the docker.hub machine
+----------------------------------------------------------------------------------------------------

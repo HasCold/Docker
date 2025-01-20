@@ -1,0 +1,7 @@
+If we want that to push our container app to the repository or can say the docker hub repo.
+
+To check whether it is login via the docker hub credentials
+
+. docker login
+
+. docker image tag two-tier-flask-app-flask-app:latest hasan1702/two-tier-backend:latest === Tag the current image and rename it with your username and then push on to the docker hub. 
