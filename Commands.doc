@@ -147,7 +147,7 @@ Create a folder in your host machine -->>
 
 . docker compose up -d === to run the docker-compose file or run the docker container in a deattached manner means in the background.
 
-. docker compose up -d --build === forcefully build the containers again.
+. docker compose up -d --build === forcefully build the containers again or sometimes the data is cached so then this flag needs --build.
 
 . docker compose down === basically stop all the containers and remove
 
@@ -158,9 +158,11 @@ Create a folder in your host machine -->>
 . docker rmi <image-id> === remove the image id.
 
 --------------------------------------- Docker Registry ---------------------------------------------
+
 . docker login
 
 . docker image tag two-tier-flask-app-flask-app:latest hasan1702/two-tier-backend:latest === Tag the current image and rename it with your username and then push on to the docker hub. 
 
 . docker push hasan1702/two-tier-backend:latest === Push the image from local machine to the docker.hub machine
+
 ----------------------------------------------------------------------------------------------------
