@@ -59,13 +59,22 @@ bash-5.1# quit
 bash: quit: command not found
 bash-5.1# exit
 exit
--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------- Docker Remove Commands ---------------------------------------------
 
 . docker run -itd ubuntu  === -itd For continuously running the ubuntu in the interactive terminal with deattached way. 
 
 . docker rm <container-id> === Delete the Container
 
 . docker rm -f <container-id> === If the container is still running, you can stop and delete it in one step using the -f (force) flag 
+
+. docker rmi <imageId:tag>/mysql:latest  === Remove the image ID
+
+. docker stop <container-id> && docker rm <container-id>  === Stop the container and delete the specific container. 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
 
 -------------------------------------- Docker Network ---------------------------------------------
 
