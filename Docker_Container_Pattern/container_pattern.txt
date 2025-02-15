@@ -1,0 +1,11 @@
+https://app.eraser.io/workspace/qCknEPpmDEDpy9QQ08Ut
+
+
+Container Patterns :-
+
+- Side Car Pattern
+- Adapter Pattern
+- Ambassador Pattern
+- Work Queue Pattern
+- Init Pattern
+
